@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="cart.css">
+    <link href="others/layout.css" rel="stylesheet">
+    <link href="chat.css" rel="stylesheet">
+    <script src="cart.js"></script>
+
+    <title>Shopping Cart</title>
+</head>
+<body>
+    <header>
+        <img class="logo" src="logo.png" alt="Logo">
+        <p class="headtitle">Paper Bliss</p>
+        <div class="search_container">
+            <input class="searchbar" type="text" placeholder="Search" />
+            <button class="search_button" alt="Search button"><img src="search_button.png"/></button>
+
+            <a href="cart.html" target="_blank">
+                <button class="cart" alt="Cart"><img src="Cart.png"/></button>
+            </a>
+            
+        </div>
+    </header>
+
+    <div class="nav_bar">
+        <a href="homepage.html">Home Page</a>
+        <a href="Aboutus.html">About Us</a>
+        <a href="Promotion.html">Promotions</a>
+
+    <div class="sub_nav">
+        <button class="stationary_menu">&#9654 Stationary</button>
+        <div class="sub_nav_content">
+            <a href="MathematicalInstruments.html">Mathematical Instruments</a>
+            <a href="holePuncher.html">Punchers</a>
+            <a href="stationarySets.html">Stationary Sets</a>
+            <a href="whiteboardandnoticeboard.html">Whiteboard and Noticeboard </a>
+            <a href="files.html">Files</a>
+        </div>
+    </div>
+
+    <div class="sub_nav">
+        <button class="stationary_menu">&#9654 Writing Implements</button>
+        <div class="sub_nav_content">
+            <a href="pencils.html">Pencils</a>
+            <a href="pen.html">Pens</a>
+            <a href="marker.html">Markers</a>
+            <a href="highlighter.html">Highlighter</a>
+        </div>
+    </div>
+
+    <div class="sub_nav">
+        <button class="stationary_menu">&#9654 Paper Products</button>
+        <div class="sub_nav_content">
+            <a href="ColorPapersAndCards.html">Color Paper and Cards</a>
+            <a href="CopierPaper.html">Copier Papers</a>
+            <a href="LabelsAndStickers.html">Labels and Stickers</a>
+        </div>
+    </div>
+    
+    </div>
+
+    <p class="Title"><h2>Your Shopping Cart</h2></p>
+    <table>
+        <thead>
+            <tr>
+                <th>Product</th>
+                <th>Image</th>
+                <th>Description</th>
+                <th>Price</th>
+                <th>Quantity</th>
+                <th>Total Price</th>
+            </tr>
+        </thead>
+        <tbody id="cart-items">
+            <!-- Cart items will be displayed here -->
+        </tbody>
+    </table>
+
+    <div>
+        <input name="orderType" id="delivery" type="radio" checked>
+        <label for="delivery">Delivery</label>
+        <input name="orderType" id="pickup" type="radio">
+        <label for="pickup">Pickup</label>
+     </div>
+
+    <fieldset id="custInfo">
+        <legend>Customer Information</legend>
+
+        <div class="fromRow">
+            <label for="name">Name</label>
+            <input name="custName" id="name" type="text" placeholder="Enter first name and last name" required/>
+        </div>
+        
+        <div class="fromRow">
+            <label for="street">Street address</label>
+            <input name="custStreet" id="street" type="text" required/>
+        </div>
+
+        <div class="fromRow">
+            <label for="city">City</label>
+            <input name="custCity" id="city" type="text" required/>
+        </div>
+
+        <div class="fromRow">
+            <label for="state">State</label>
+            <input name="custState" id="state" type="text" required/>
+        </div>
+
+        <div class="fromRow">
+            <label for="zip">Postal code</label>
+            <input name="custZip" id="zip" type="text" placeholder="nnnnn (-nnnn)" required/>
+        </div>
+    </fieldset>
+
+    <button id="submitButton">Submit</button>
+    
+    <script>
+        const submitButton = document.getElementById("submitButton");
+        submitButton.addEventListener("click", function () {
+            // Check which radio button is selected
+            const deliveryRadio = document.getElementById("delivery");
+            const pickupRadio = document.getElementById("pickup");
+
+            // If "Pickup" is selected, perform the original function
+            if (pickupRadio.checked) {
+                // Place your original code here for the "Pickup" option
+
+                // For example, you can display a confirmation message and close the page
+                alert("Thank you for your pickup order! We have received your order of serial number 55669.  Your can collect your pickup after 5 working days✨");
+                window.open("", "_self").close();
+            } else {
+                // Validation for "Delivery" option
+                const nameInput = document.getElementById("name");
+                const streetInput = document.getElementById("street");
+                const cityInput = document.getElementById("city");
+                const stateInput = document.getElementById("state");
+                const zipInput = document.getElementById("zip");
+
+                // Check if any of the required fields are empty
+                if (
+                    nameInput.value.trim() === "" ||
+                    streetInput.value.trim() === "" ||
+                    cityInput.value.trim() === "" ||
+                    stateInput.value.trim() === "" ||
+                    zipInput.value.trim() === ""
+                ) {
+                    alert("Please fill in all required fields.");
+                    return; // Do not continue if validation fails
+                }
+
+                // If validation passes, continue with your original next move for "Delivery"
+
+                // Set a flag in localStorage to indicate submission
+                localStorage.setItem("submissionFlag", "true");
+
+                // Display a message
+                alert("Thank you for your delivery order! We will send your order as soon as possible.");
+
+                // Clear the flag to prevent displaying the message again
+                localStorage.removeItem("submissionFlag");
+
+                // Close the cart page
+                window.open("", "_self").close();
+            }
+        });
+
+        // Add a beforeunload event listener to clear the cart data
+        window.addEventListener("beforeunload", function () {
+            localStorage.removeItem("cart");
+        });
+    </script>
+
+
+<footer>
+    <p class="title">PAPER BLISS</p>
+    <div class="ft"> 
+        <div class="footer-section">
+        <p class="footer-title">Contact Information</p>
+        <p class="footer-content">
+            
+            📩 Email: <a href="mailto:paperbliss@gmail.com">paperbliss@gmail.com</a><br>
+            ☎️ Phone: <a href="tel:+6032489142">03-248 9142</a><br>
+            🗺️Location: <a href="https://www.google.com/maps/place/21,+Jalan+Bersatu+10,+Taman+Bersatu,+48000+Rawang,+Selangor" target="_blank">No. 21, Jalan Bersatu 10, Taman Bersatu, 48000 Rawang, Selangor</a>
+        
+        </p>
+        </div>
+        <div class="footer-section">
+            <p class="footer-title">Opening Hours</p>
+            <p class="footer-content">
+                Monday - Friday: 9:00 AM - 6:00 PM<br>
+                Saturday: 10:00 AM - 4:00 PM<br>
+                Sunday: Closed
+            </p>
+
+            <div class="footer-section">
+                <p class="footer-title">More</p>
+                <a href="FAQ.html">FAQ</a><br>
+            </div>
+        </div>
+        <div class="footer-section">
+
+            <p class="footer-title">Categories</p>
+            <p class="footer-content">
+                <a href="pen.html">Pen</a><br>
+                <a href="marker.html">Marker Pen</a><br>
+                <a href="pencils.html">Pencils</a><br>
+                <a href="highlighter.html">Highlighter </a><br>
+                <a href="MathematicalInstruments.html">Mathematical Instrument </a><br>
+                <a href="holePuncher.html">Punchers </a><br>
+                <a href="stationarySets.html">Stationary Sets </a><br>
+                <a href="whiteboardandnoticeboard.html">Whiteboard and Noticeboard  </a><br>
+                <a href="files.html">Files  </a><br>
+                <a href="ColorPapersAndCards.html">Colour paper and Cards </a><br>
+                <a href="CopierPaper.html">Copier Paper </a><br>
+                <a href="LabelsAndStickers.html">Label and Stickers  </a><br>
+            </p>
+        </div>
+
+        <div class="footer-section">
+            <p class="footer-title">Follow Us</p>
+            <a href="#">
+                <img src="others/Facebook.jpg" alt="Facebook Logo" class="social-logo">
+                Facebook
+            </a>
+            <p class="social-info">Connect with us on Facebook for updates and promotions.</p>
+            <a href="#">
+                <img src="others/instagram.png" alt="Instagram Logo" class="social-logo">
+                Instagram
+            </a>
+            <p class="social-info">Follow us on Instagram for visual inspiration and product showcases.</p>
+            <a href="#">
+                <img src="others/twitter.png" alt="Twitter Logo" class="social-logo">
+                Twitter
+            </a>
+            <p class="social-info">Join the conversation on Twitter for the latest news and announcements.</p>
+        </div>
+
+        <div class="footer-copyright">
+            <p>&copy; 2023 Paper Bliss</p>
+        </div>
+    </div>
+</footer>
+
+<div class="chat-circle" id="chat-circle">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRQK6Bhl1oKDGYOSGlCqZvQD9lb5eLEHxrqgw&usqp=CAU" alt="Chat Icon">
+</div>
+
+<div class="chat-container" id="chat-container">
+    <div class="chat-float">
+        <div class="chat-header">
+            <h2>Paper Bliss BOT</h2>
+        </div>
+        <div class="chat-log" id="chat-log">
+            <!-- Chat messages will be displayed here -->
+        </div>
+        <div class="chat-input">
+            <input type="text" id="user-input" placeholder="Type your message...">
+            <button id="send-button">Send</button>
+        </div>
+        <div class="chat-header">
+            
+            <button id="close-button">Close</button>
+        </div>
+    </div>
+</div>
+
+<script src="chat.js"></script>
+
+</body>
+</html>

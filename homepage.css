@@ -1,0 +1,144 @@
+@charset "utf-8";
+/* Structural Styles */
+
+article, aside, figcaption, figure,
+footer, header, main, nav, section { 
+   display: block;
+}
+/* Typographic Styles */
+address, article, aside, blockquote, body, cite, 
+div, dl, dt, dd, em, figcaption, figure, footer, 
+h1, h2, h3, h4, h5, h6, header, html, img, 
+li, main, nav, ol, p, section, span, ul {
+   background: transparent;	
+   font-size: 100%;	
+   margin: 0;
+   padding: 0;
+   vertical-align: baseline;
+   -webkit-box-sizing: border-box;
+   -moz-box-sizing: border-box;
+   box-sizing:border-box;	 }
+
+nav ul {
+   list-style: none;
+   list-style-image: none;
+}
+
+nav a {
+   text-decoration: none;
+}
+
+body {
+   line-height: 1;
+}
+
+
+
+
+html{
+   max-width: 1024px;
+   max-height: 768px;
+   margin-left: auto;
+   margin-right: auto;
+}
+
+
+body {
+   background-color: #f0f0f0;
+}
+
+
+#right {
+   padding: 20px;
+}
+
+#right h1{
+   text-align: center;
+   font-size: 30px;
+   font-family: Georgia, 'Times New Roman', Times, serif;
+   padding-top: 50px;
+   padding-bottom: 20px;
+}
+
+article{
+   padding-top: 30px;
+}
+
+.image1{
+   display: flex;
+   margin: 30px auto;
+}
+
+.image2{
+   display: flex;
+   margin: 30px auto;
+   width: 750px;
+   height: 50%;
+   margin-left: 130px;
+}
+
+#right p{
+   text-align: center;
+}
+
+.hotp{
+   margin-left: 275px;
+   align-items: center;
+   margin-bottom: 30px;
+   display: inline-block;
+   font-size: 50px;
+   font-family:'Times New Roman', Times, serif;
+   font-weight: bold;
+   color: rgb(179, 78, 78);
+   background-color: black;
+   border-radius: 10px;
+   border: 5px solid rgb(179, 78, 78);
+   padding: 10px 50px;
+}
+
+.hotsale{
+   display: flex;
+   justify-content: space-between;
+   color: rgb(0, 0, 0);
+   font-family: 'Times New Roman', Times, serif;
+   line-height: 24px;
+   text-align: center;
+}
+
+.hotproduct{
+   margin-left: 30px;
+   margin-right: 30px;
+   justify-content: space-between;
+}
+
+.star{
+   box-sizing: border-box;
+   color: rgb(221, 218, 39);
+   cursor: pointer;
+   display: inline-block;
+   font-size: 15px;
+   line-height: 12px;
+}
+
+
+.image{
+   height: 250px;
+   width: 250px;
+   border-color: rgb(57, 32, 200);
+   border-style: solid;
+   border-width: 3px;
+   border-radius: 10px;
+}
+
+h2{
+   text-align: center;
+   padding-bottom: 0;
+   padding-top: 30px;
+}
+
+body > section#right > .mapic >video {
+   margin-left: 100px;
+   width: 800px;
+   margin-top: 20px;
+   margin-bottom: 20px;
+}
